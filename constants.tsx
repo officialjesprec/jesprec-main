@@ -32,7 +32,7 @@ export const PROJECTS: Project[] = [
     id: '3',
     title: 'The Visual Vault: Lagos Pulse',
     vault: Vault.VISUAL,
-    image: 'https://images.unsplash.com/photo-1514525253361-bee8718a747b?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=800',
     description: 'Cinematic storytelling through high-octane event coverage and drone cinematography.',
     tags: ['Drone', '4K Video', 'Editing'],
     caseStudy: {
@@ -97,7 +97,7 @@ export const PROJECTS: Project[] = [
     id: '8',
     title: 'SmartHome Hub',
     vault: Vault.DIGITAL,
-    image: 'https://images.unsplash.com/photo-1558002038-109155714d9d?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
     description: 'IoT dashboard for managing connected home devices with voice control integration.',
     tags: ['IoT', 'React', 'Dashboard'],
     caseStudy: {
