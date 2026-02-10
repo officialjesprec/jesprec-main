@@ -83,7 +83,7 @@ export const PROJECTS: Project[] = [
   {
     id: '7',
     title: 'Afro-Fusion Beats',
-    vault: Vault.CREATIVE,
+    vault: Vault.VISUAL,
     image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&q=80&w=800',
     description: 'Album art and branding for an upcoming Afro-fusion artist.',
     tags: ['Branding', 'Graphic Design', 'Music'],
