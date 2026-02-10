@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
+import { FaInstagram, FaLinkedin, FaBehance, FaWhatsapp, FaXTwitter } from 'react-icons/fa6';
 
 const Footer: React.FC = () => {
   return (
@@ -31,10 +32,47 @@ const Footer: React.FC = () => {
           </div>
           <div>
             <h4 className="text-white font-black mb-8 text-xs tracking-[0.4em] uppercase">Connect</h4>
-            <ul className="space-y-6">
-              <li><a href="https://instagram.com/jesprec" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors text-xs font-bold uppercase tracking-[0.2em] cursor-pointer block">Instagram</a></li>
-              <li><a href="https://linkedin.com/company/jesprec" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors text-xs font-bold uppercase tracking-[0.2em] cursor-pointer block">LinkedIn</a></li>
-              <li><a href="https://wa.me/2348000000000" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-[#25D366] transition-colors text-xs font-bold uppercase tracking-[0.2em] cursor-pointer block">WhatsApp Direct</a></li>
+            <ul className="space-y-4">
+              <li>
+                <a href="https://www.instagram.com/jesprecstudios" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-500 hover:text-[#E1306C] transition-colors text-xs font-bold uppercase tracking-[0.2em] group">
+                  <div className="w-5 h-5 flex items-center justify-center">
+                    <FaInstagram size="100%" />
+                  </div>
+                  <span>Instagram</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.x.com/jesprecstudios" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-500 hover:text-white transition-colors text-xs font-bold uppercase tracking-[0.2em] group">
+                  <div className="w-5 h-5 flex items-center justify-center">
+                    <FaXTwitter size="100%" />
+                  </div>
+                  <span>X (Twitter)</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/jesutobiloba-precious-358164259" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-500 hover:text-[#0A66C2] transition-colors text-xs font-bold uppercase tracking-[0.2em] group">
+                  <div className="w-5 h-5 flex items-center justify-center">
+                    <FaLinkedin size="100%" />
+                  </div>
+                  <span>LinkedIn</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://behance.net/officialjesprec" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-500 hover:text-[#1769FF] transition-colors text-xs font-bold uppercase tracking-[0.2em] group">
+                  <div className="w-5 h-5 flex items-center justify-center">
+                    <FaBehance size="100%" />
+                  </div>
+                  <span>Behance</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://wa.me/2348086215207" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-500 hover:text-[#25D366] transition-colors text-xs font-bold uppercase tracking-[0.2em] group">
+                  <div className="w-5 h-5 flex items-center justify-center">
+                    <FaWhatsapp size="100%" />
+                  </div>
+                  <span>WhatsApp</span>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
