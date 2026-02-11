@@ -44,7 +44,7 @@ const Home: React.FC = () => {
     <div className="relative min-h-screen bg-primary">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        <DoodleBackground variant="default" className="opacity-5" />
+        <DoodleBackground variant="default" className="opacity-40 z-10" />
         <div className="absolute inset-0 z-0">
           <motion.img
             initial={{ scale: 1.1, opacity: 0 }}
@@ -135,7 +135,7 @@ const Home: React.FC = () => {
 
       {/* The Three Pillars (Vaults) */}
       <section className="relative py-24 md:py-32 px-6 container mx-auto overflow-hidden">
-        <DoodleBackground variant="visual" className="opacity-5 rotate-12 -right-1/4 top-0" />
+        <DoodleBackground variant="visual" className="opacity-30 z-0 rotate-12 -right-1/4 top-0" />
         <div className="text-center mb-16 md:mb-20">
           <motion.h2
             initial={{ y: 30, opacity: 0 }}
@@ -204,7 +204,7 @@ const Home: React.FC = () => {
 
       {/* Testimonials Section */}
       <section className="relative py-24 md:py-32 px-6 bg-muted/50 overflow-hidden">
-        <DoodleBackground variant="art" className="opacity-5 -left-1/4 bottom-0" />
+        <DoodleBackground variant="art" className="opacity-30 z-0 -left-1/4 bottom-0" />
         <div className="container mx-auto">
           <div className="text-center mb-16 md:mb-20">
             <motion.span

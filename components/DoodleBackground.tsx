@@ -40,7 +40,7 @@ const DoodleBackground: React.FC<DoodleBackgroundProps> = ({ variant, className 
     }, [variant]);
 
     return (
-        <div className={`absolute inset-0 overflow-hidden pointer-events-none opacity-10 ${className}`}>
+        <div className={`absolute inset-0 overflow-hidden pointer-events-none opacity-20 ${className}`}>
             <AnimatePresence mode="wait">
                 <motion.svg
                     key={variant}
@@ -57,7 +57,7 @@ const DoodleBackground: React.FC<DoodleBackgroundProps> = ({ variant, className 
                             d={path}
                             fill="none"
                             stroke="currentColor"
-                            strokeWidth="1"
+                            strokeWidth="2"
                             strokeLinecap="round"
                             initial={{ pathLength: 0 }}
                             animate={{ pathLength: 1 }}

@@ -29,7 +29,7 @@ const Gallery: React.FC = () => {
 
   return (
     <div className="pt-32 pb-24 px-6 container mx-auto relative">
-      <DoodleBackground variant="art" className="opacity-[0.05]" />
+      <DoodleBackground variant="art" className="opacity-40" />
 
       <motion.div
         initial={{ y: -20, opacity: 0 }}

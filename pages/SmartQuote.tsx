@@ -83,7 +83,7 @@ const SmartQuote: React.FC = () => {
 
   return (
     <div className="pt-40 pb-24 px-6 min-h-screen flex items-center justify-center bg-primary relative overflow-hidden">
-      <DoodleBackground variant={getDoodleVariant()} className="opacity-[0.03]" />
+      <DoodleBackground variant={getDoodleVariant()} className="opacity-30" />
 
       <motion.div
         layout

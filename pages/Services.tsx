@@ -27,7 +27,7 @@ const Services: React.FC = () => {
 
   return (
     <div className="pt-32 pb-24 overflow-hidden relative">
-      <DoodleBackground variant={doodleVariant} className="fixed opacity-[0.03] z-0" />
+      <DoodleBackground variant={doodleVariant} className="fixed opacity-30 z-0" />
 
       {/* Consultant Intro */}
       <section className="container mx-auto px-6 mb-32 relative z-10">
