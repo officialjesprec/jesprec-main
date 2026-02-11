@@ -19,32 +19,16 @@ const ScrollToTop: React.FC = () => {
 };
 
 const App: React.FC = () => {
-  const [theme, setTheme] = useState(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) return savedTheme;
-    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-  });
-
   useEffect(() => {
     const root = window.document.documentElement;
-    if (theme === 'dark') {
-      root.classList.add('dark');
-      root.classList.remove('light');
-    } else {
-      root.classList.add('light');
-      root.classList.remove('dark');
-    }
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
-  };
+    root.classList.add('dark');
+    root.classList.remove('light');
+  }, []);
 
   return (
     <Router>
-      <div className="min-h-screen flex flex-col bg-primary text-foreground selection:bg-brand-purple selection:text-white">
-        <Navbar theme={theme} toggleTheme={toggleTheme} />
+      <div className="min-h-screen flex flex-col bg-primary text-foreground selection:bg-brand-purple selection:text-white dark">
+        <Navbar />
         <ScrollToTop />
         <main className="flex-grow">
           <Routes>

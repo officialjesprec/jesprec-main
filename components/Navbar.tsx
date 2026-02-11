@@ -2,14 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Logo from './Logo';
-import { FiSun, FiMoon } from 'react-icons/fi';
 
-interface NavbarProps {
-  theme: string;
-  toggleTheme: () => void;
-}
-
-const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
+const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
@@ -47,7 +41,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
             <Link
               key={link.name}
               to={link.path}
-              className={`text-[10px] font-black tracking-[0.3em] uppercase transition-all hover:text-brand-purple ${isActive(link.path) ? 'text-brand-purple' : 'text-foreground/40 dark:text-gray-400'}`}
+              className={`text-[10px] font-black tracking-[0.3em] uppercase transition-all hover:text-brand-purple ${isActive(link.path) ? 'text-brand-purple' : 'text-gray-400'}`}
             >
               {link.name}
             </Link>
@@ -56,13 +50,6 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
 
         {/* Desktop Button Section - Flex-1 and right aligned for centering links */}
         <div className="hidden lg:flex lg:flex-1 justify-end items-center space-x-6">
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-full hover:bg-foreground/10 transition-colors text-foreground"
-            aria-label="Toggle Theme"
-          >
-            {theme === 'dark' ? <FiSun size={20} /> : <FiMoon size={20} />}
-          </button>
           <Link
             to="/quote"
             className="bg-brand-purple hover:bg-brand-pink text-white px-8 py-3 rounded-full text-[10px] font-black tracking-[0.2em] uppercase transition-all transform hover:-translate-y-1 shadow-lg shadow-brand-purple/20"
@@ -73,13 +60,6 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
 
         {/* Mobile Menu Toggle */}
         <div className="flex items-center lg:hidden space-x-4">
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-full hover:bg-foreground/10 transition-colors text-foreground"
-            aria-label="Toggle Theme"
-          >
-            {theme === 'dark' ? <FiSun size={20} /> : <FiMoon size={20} />}
-          </button>
           <button
             className="text-foreground focus:outline-none p-2 shrink-0"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -106,7 +86,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
             key={link.name}
             to={link.path}
             onClick={() => setIsMenuOpen(false)}
-            className={`text-xl font-black uppercase tracking-[0.3em] transition-colors ${isActive(link.path) ? 'text-brand-purple' : 'text-foreground/70 dark:text-gray-300'}`}
+            className={`text-xl font-black uppercase tracking-[0.3em] transition-colors ${isActive(link.path) ? 'text-brand-purple' : 'text-gray-300'}`}
           >
             {link.name}
           </Link>

@@ -1,63 +1,65 @@
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import { CREATIVE_SERVICES, DIGITAL_SERVICES } from '../constants';
-
-const FadeInSection: React.FC<{ children: React.ReactNode; className?: string; delay?: number }> = ({ children, className = "", delay = 0 }) => {
-  const domRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-
-    const { current } = domRef;
-    if (current) observer.observe(current);
-    return () => {
-      if (current) observer.unobserve(current);
-    };
-  }, []);
-
-  return (
-    <div
-      ref={domRef}
-      style={{ transitionDelay: `${delay}ms` }}
-      className={`transition-all duration-1000 ease-out will-change-[opacity,transform] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        } ${className}`}
-    >
-      {children}
-    </div>
-  );
-};
+import DoodleBackground from '../components/DoodleBackground';
 
 const Services: React.FC = () => {
+  const [doodleVariant, setDoodleVariant] = useState<'visual' | 'digital' | 'art' | 'default'>('default');
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
   return (
-    <div className="pt-32 pb-24 overflow-hidden">
+    <div className="pt-32 pb-24 overflow-hidden relative">
+      <DoodleBackground variant={doodleVariant} className="fixed opacity-[0.03] z-0" />
+
       {/* Consultant Intro */}
-      <section className="container mx-auto px-6 mb-32">
+      <section className="container mx-auto px-6 mb-32 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-20">
-          <FadeInSection className="lg:w-1/2">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="lg:w-1/2"
+          >
             <span className="text-brand-cyan font-black tracking-[0.3em] uppercase text-xs mb-4 block">The Methodology</span>
             <h2 className="text-4xl md:text-6xl font-black text-foreground mb-8 tracking-tighter uppercase leading-none">
               We Don't Just Execute. <br /> We Strategize.
             </h2>
-            <p className="text-foreground/60 dark:text-gray-400 text-lg leading-relaxed mb-8 italic">
+            <p className="text-gray-400 text-lg leading-relaxed mb-8 italic">
               "A successful project begins with the right questions, not just the right tools."
             </p>
-            <p className="text-foreground/50 dark:text-gray-500 leading-relaxed mb-10 font-medium">
+            <p className="text-gray-500 leading-relaxed mb-10 font-medium">
               At Jesprec, we adopt a Consultant-First approach. We study your market, identify your specific pain points, and engineer solutions that solve real-world problems—whether it's a mobile app for vendors or a cinematic brand documentary.
             </p>
-            <Link to="/quote" className="px-10 py-4 bg-brand-purple text-white font-black rounded-full text-xs tracking-widest uppercase hover:bg-brand-pink transition-all">
+            <Link to="/quote" className="px-10 py-4 bg-brand-purple text-white font-black rounded-full text-xs tracking-widest uppercase hover:bg-brand-pink transition-all inline-block">
               Book a Strategy Call
             </Link>
-          </FadeInSection>
-          <FadeInSection className="lg:w-1/2 bg-muted p-10 rounded-[2.5rem] border border-foreground/5 shadow-sm" delay={200}>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="lg:w-1/2 bg-muted p-10 rounded-[2.5rem] border border-white/5 shadow-sm"
+          >
             <h3 className="text-foreground font-black text-sm tracking-[0.3em] uppercase mb-8">The Onboarding Checklist</h3>
             <div className="space-y-6">
               {[
@@ -70,90 +72,147 @@ const Services: React.FC = () => {
                   <span className="text-2xl">{item.icon}</span>
                   <div>
                     <h4 className="text-foreground font-black text-xs uppercase tracking-widest">{item.title}</h4>
-                    <p className="text-foreground/40 dark:text-gray-500 text-xs mt-1 font-bold">{item.desc}</p>
+                    <p className="text-gray-500 text-xs mt-1 font-bold">{item.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
-            <p className="mt-10 text-[10px] text-gray-600 italic uppercase">
-              * Having these ready ensures a high-velocity project launch.
-            </p>
-          </FadeInSection>
+          </motion.div>
         </div>
       </section>
 
       {/* Creative Wing */}
-      <section className="container mx-auto px-6 mb-32">
+      <section
+        className="container mx-auto px-6 mb-32 relative z-10"
+        onMouseEnter={() => setDoodleVariant('visual')}
+        onMouseLeave={() => setDoodleVariant('default')}
+      >
         <div className="flex flex-col lg:flex-row items-center gap-16">
-          <FadeInSection className="lg:w-1/2">
-            <span className="text-brand-pink font-black tracking-widest uppercase text-xs">Innovation Wing A</span>
-            <h2 className="text-4xl md:text-5xl font-black mt-4 mb-8 uppercase tracking-tighter text-foreground">CREATIVE WING</h2>
-            <p className="text-foreground/60 dark:text-gray-400 text-lg leading-relaxed mb-12 font-light">
+          <div className="lg:w-1/2">
+            <motion.span
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              className="text-brand-pink font-black tracking-widest uppercase text-xs"
+            >
+              Innovation Wing A
+            </motion.span>
+            <motion.h2
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              className="text-4xl md:text-5xl font-black mt-4 mb-8 uppercase tracking-tighter text-foreground"
+            >
+              CREATIVE WING
+            </motion.h2>
+            <p className="text-gray-400 text-lg leading-relaxed mb-12 font-light">
               Capturing cinematic moments with absolute precision. We don't just take photos; we manufacture timeless visual narratives for elite brands.
             </p>
-            <div className="grid sm:grid-cols-2 gap-8">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={containerVariants}
+              className="grid sm:grid-cols-2 gap-8"
+            >
               {CREATIVE_SERVICES.map((s, idx) => (
-                <FadeInSection key={s.id} className="p-8 rounded-3xl bg-muted border-l-4 border-brand-purple hover:border-brand-pink transition-all group shadow-sm" delay={idx * 100}>
+                <motion.div
+                  key={s.id}
+                  variants={itemVariants}
+                  className="p-8 rounded-3xl bg-muted border-l-4 border-brand-purple hover:border-brand-pink transition-all group shadow-sm bg-muted/50 backdrop-blur-sm"
+                >
                   <div className="text-4xl mb-6 group-hover:scale-110 transition-transform origin-left">{s.icon}</div>
                   <h3 className="font-black text-xl mb-4 text-foreground uppercase tracking-tighter">{s.title}</h3>
                   <ul className="space-y-3">
                     {s.items.map(item => (
-                      <li key={item} className="text-foreground/40 dark:text-gray-500 text-[10px] font-black uppercase tracking-widest flex items-center gap-3">
+                      <li key={item} className="text-gray-500 text-[10px] font-black uppercase tracking-widest flex items-center gap-3">
                         <span className="w-1.5 h-1.5 bg-brand-purple rounded-full"></span>
                         {item}
                       </li>
                     ))}
                   </ul>
-                </FadeInSection>
+                </motion.div>
               ))}
-            </div>
-          </FadeInSection>
-          <FadeInSection className="lg:w-1/2 relative" delay={300}>
+            </motion.div>
+          </div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            className="lg:w-1/2 relative"
+          >
             <div className="absolute -inset-4 bg-brand-purple/5 blur-3xl rounded-full"></div>
             <img
               src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80&w=800"
               alt="Creative Wing"
-              className="relative rounded-[2rem] shadow-2xl border border-foreground/10 grayscale hover:grayscale-0 transition-all duration-700"
+              className="relative rounded-[2rem] shadow-2xl border border-white/5 grayscale hover:grayscale-0 transition-all duration-700"
             />
-          </FadeInSection>
+          </motion.div>
         </div>
       </section>
 
       {/* Digital Wing */}
-      <section className="bg-muted/30 py-32 border-y border-foreground/5">
+      <section
+        className="relative z-10 py-32 border-y border-white/5 bg-muted/10 backdrop-blur-sm"
+        onMouseEnter={() => setDoodleVariant('digital')}
+        onMouseLeave={() => setDoodleVariant('default')}
+      >
         <div className="container mx-auto px-6">
           <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
-            <FadeInSection className="lg:w-1/2">
-              <span className="text-brand-cyan font-black tracking-widest uppercase text-xs">Innovation Wing B</span>
-              <h2 className="text-4xl md:text-5xl font-black mt-4 mb-8 uppercase tracking-tighter text-foreground">DIGITAL WING</h2>
-              <p className="text-foreground/60 dark:text-gray-400 text-lg leading-relaxed mb-12 font-light">
+            <div className="lg:w-1/2 text-right">
+              <motion.span
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                className="text-brand-cyan font-black tracking-widest uppercase text-xs"
+              >
+                Innovation Wing B
+              </motion.span>
+              <motion.h2
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                className="text-4xl md:text-5xl font-black mt-4 mb-8 uppercase tracking-tighter text-foreground"
+              >
+                DIGITAL WING
+              </motion.h2>
+              <p className="text-gray-400 text-lg leading-relaxed mb-12 font-light">
                 Engineering experiences that work. We combine user-centric design with robust development to build platforms that solve business problems and scale exponentially.
               </p>
-              <div className="grid sm:grid-cols-2 gap-8">
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={containerVariants}
+                className="grid sm:grid-cols-2 gap-8"
+              >
                 {DIGITAL_SERVICES.map((s, idx) => (
-                  <FadeInSection key={s.id} className="p-8 rounded-3xl bg-primary border-r-4 border-brand-cyan hover:border-brand-purple transition-all text-right group shadow-sm" delay={idx * 100}>
+                  <motion.div
+                    key={s.id}
+                    variants={itemVariants}
+                    className="p-8 rounded-3xl bg-primary border-r-4 border-brand-cyan hover:border-brand-purple transition-all group shadow-sm"
+                  >
                     <div className="text-4xl mb-6 group-hover:scale-110 transition-transform origin-right">{s.icon}</div>
                     <h3 className="font-black text-xl mb-4 text-foreground uppercase tracking-tighter">{s.title}</h3>
                     <ul className="space-y-3">
                       {s.items.map(item => (
-                        <li key={item} className="text-foreground/40 dark:text-gray-500 text-[10px] font-black uppercase tracking-widest flex flex-row-reverse items-center gap-3">
+                        <li key={item} className="text-gray-500 text-[10px] font-black uppercase tracking-widest flex flex-row-reverse items-center gap-3">
                           <span className="w-1.5 h-1.5 bg-brand-cyan rounded-full"></span>
                           {item}
                         </li>
                       ))}
                     </ul>
-                  </FadeInSection>
+                  </motion.div>
                 ))}
-              </div>
-            </FadeInSection>
-            <FadeInSection className="lg:w-1/2 relative" delay={300}>
+              </motion.div>
+            </div>
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              className="lg:w-1/2 relative"
+            >
               <div className="absolute -inset-4 bg-brand-cyan/5 blur-3xl rounded-full"></div>
               <img
                 src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800"
                 alt="Digital Wing"
-                className="relative rounded-[2rem] shadow-2xl border border-foreground/10 grayscale hover:grayscale-0 transition-all duration-700"
+                className="relative rounded-[2rem] shadow-2xl border border-white/5 grayscale hover:grayscale-0 transition-all duration-700"
               />
-            </FadeInSection>
+            </motion.div>
           </div>
         </div>
       </section>

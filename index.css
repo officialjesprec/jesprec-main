@@ -26,14 +26,6 @@
     --muted: #1a1a1a;
 }
 
-.light {
-    --background: #FFFFFF;
-    --foreground: #09090b;
-    --primary: #FAFAFA;
-    --secondary: #E4E4E7;
-    --muted: #F4F4F5;
-}
-
 /* Custom Utilities */
 .masonry-grid {
     column-count: 1;
