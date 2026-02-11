@@ -2,8 +2,7 @@
 export enum Vault {
   ALL = 'All Vaults',
   VISUAL = 'Visual Vault',
-  DIGITAL = 'Digital Vault',
-  ART = 'Art Vault'
+  DIGITAL = 'Digital Vault'
 }
 
 export interface CaseStudy {

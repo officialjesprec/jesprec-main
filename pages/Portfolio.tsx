@@ -102,7 +102,7 @@ const Portfolio: React.FC = () => {
                 alt={project.title}
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-primary/20 to-transparent opacity-80"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-100"></div>
             </div>
 
             <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10">

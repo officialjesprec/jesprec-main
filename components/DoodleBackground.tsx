@@ -47,9 +47,19 @@ const DoodleBackground: React.FC<DoodleBackgroundProps> = ({ variant, className 
                     viewBox="0 0 500 500"
                     className="w-full h-full text-brand-purple"
                     initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
+                    animate={{
+                        opacity: 1,
+                        scale: 1,
+                        x: [0, 15, -15, 0],
+                        y: [0, -15, 15, 0]
+                    }}
                     exit={{ opacity: 0, scale: 1.05 }}
-                    transition={{ duration: 1, ease: "easeInOut" }}
+                    transition={{
+                        opacity: { duration: 1 },
+                        scale: { duration: 1 },
+                        x: { duration: 20, repeat: Infinity, ease: "linear" },
+                        y: { duration: 25, repeat: Infinity, ease: "linear" }
+                    }}
                 >
                     {doodlePaths.map((path, i) => (
                         <motion.path
