@@ -27,11 +27,11 @@
 }
 
 .light {
-    --background: #f9f9f9;
-    --foreground: #121212;
-    --primary: #f4f4f5;
-    --secondary: #18181b;
-    --muted: #f0f0f0;
+    --background: #FFFFFF;
+    --foreground: #09090b;
+    --primary: #FAFAFA;
+    --secondary: #E4E4E7;
+    --muted: #F4F4F5;
 }
 
 /* Custom Utilities */

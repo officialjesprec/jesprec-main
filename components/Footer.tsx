@@ -6,35 +6,35 @@ import { FaInstagram, FaLinkedin, FaBehance, FaWhatsapp, FaXTwitter } from 'reac
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-primary pt-32 pb-12 border-t border-white/5">
+    <footer className="bg-primary pt-32 pb-12 border-t border-foreground/5">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-20 mb-20">
           <div className="col-span-2">
             <Logo className="h-12 mb-8" />
-            <p className="text-gray-500 max-w-sm font-light leading-relaxed mb-8">
+            <p className="text-foreground/50 dark:text-gray-500 max-w-sm font-light leading-relaxed mb-8">
               We operate at the convergence of technology and aesthetics, providing elite solutions for brands that demand the future.
             </p>
-            <div className="p-8 bg-white/5 rounded-3xl border border-white/5">
-              <h5 className="text-white text-[10px] font-black uppercase tracking-[0.4em] mb-4">Intellectual Property Notice</h5>
-              <p className="text-gray-600 text-[10px] leading-relaxed uppercase tracking-tighter">
+            <div className="p-8 bg-foreground/5 rounded-3xl border border-foreground/5 shadow-sm">
+              <h5 className="text-foreground text-[10px] font-black uppercase tracking-[0.4em] mb-4">Intellectual Property Notice</h5>
+              <p className="text-foreground/40 dark:text-gray-600 text-[10px] leading-relaxed uppercase tracking-tighter">
                 All visual content, code architectures, and original artworks are the exclusive property of Jesprec Studio Concepts. Unauthorized reproduction or distribution is strictly prohibited and subject to legal action under the Copyright Act of Nigeria.
               </p>
             </div>
           </div>
           <div>
-            <h4 className="text-white font-black mb-8 text-xs tracking-[0.4em] uppercase">The Hub</h4>
+            <h4 className="text-foreground font-black mb-8 text-xs tracking-[0.4em] uppercase">The Hub</h4>
             <ul className="space-y-6">
-              <li><Link to="/portfolio" className="text-gray-500 hover:text-brand-purple transition-colors text-xs font-bold uppercase tracking-[0.2em]">Portfolio Archives</Link></li>
-              <li><Link to="/services" className="text-gray-500 hover:text-brand-purple transition-colors text-xs font-bold uppercase tracking-[0.2em]">Services Strategy</Link></li>
-              <li><Link to="/gallery" className="text-gray-500 hover:text-brand-purple transition-colors text-xs font-bold uppercase tracking-[0.2em]">The Art Gallery</Link></li>
-              <li><Link to="/quote" className="text-gray-500 hover:text-brand-purple transition-colors text-xs font-bold uppercase tracking-[0.2em]">Get a Quote</Link></li>
+              <li><Link to="/portfolio" className="text-foreground/50 dark:text-gray-500 hover:text-brand-purple transition-colors text-xs font-black uppercase tracking-[0.2em]">Portfolio Archives</Link></li>
+              <li><Link to="/services" className="text-foreground/50 dark:text-gray-500 hover:text-brand-purple transition-colors text-xs font-black uppercase tracking-[0.2em]">Services Strategy</Link></li>
+              <li><Link to="/gallery" className="text-foreground/50 dark:text-gray-500 hover:text-brand-purple transition-colors text-xs font-black uppercase tracking-[0.2em]">The Art Gallery</Link></li>
+              <li><Link to="/quote" className="text-foreground/50 dark:text-gray-500 hover:text-brand-purple transition-colors text-xs font-black uppercase tracking-[0.2em]">Get a Quote</Link></li>
             </ul>
           </div>
           <div>
-            <h4 className="text-white font-black mb-8 text-xs tracking-[0.4em] uppercase">Connect</h4>
+            <h4 className="text-foreground font-black mb-8 text-xs tracking-[0.4em] uppercase">Connect</h4>
             <ul className="space-y-4">
               <li>
-                <a href="https://www.instagram.com/jesprecstudios" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-500 hover:text-[#E1306C] transition-colors text-xs font-bold uppercase tracking-[0.2em] group">
+                <a href="https://www.instagram.com/jesprecstudios" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-foreground/50 dark:text-gray-500 hover:text-[#E1306C] transition-all text-xs font-black uppercase tracking-[0.2em] group">
                   <div className="w-5 h-5 flex items-center justify-center">
                     <FaInstagram size="100%" />
                   </div>
@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a href="https://www.x.com/jesprecstudios" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-500 hover:text-white transition-colors text-xs font-bold uppercase tracking-[0.2em] group">
+                <a href="https://www.x.com/jesprecstudios" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-foreground/50 dark:text-gray-500 hover:text-foreground transition-all text-xs font-black uppercase tracking-[0.2em] group">
                   <div className="w-5 h-5 flex items-center justify-center">
                     <FaXTwitter size="100%" />
                   </div>
@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a href="https://www.linkedin.com/in/jesutobiloba-precious-358164259" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-500 hover:text-[#0A66C2] transition-colors text-xs font-bold uppercase tracking-[0.2em] group">
+                <a href="https://www.linkedin.com/in/jesutobiloba-precious-358164259" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-foreground/50 dark:text-gray-500 hover:text-[#0A66C2] transition-all text-xs font-black uppercase tracking-[0.2em] group">
                   <div className="w-5 h-5 flex items-center justify-center">
                     <FaLinkedin size="100%" />
                   </div>
@@ -58,7 +58,7 @@ const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a href="https://behance.net/officialjesprec" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-500 hover:text-[#1769FF] transition-colors text-xs font-bold uppercase tracking-[0.2em] group">
+                <a href="https://behance.net/officialjesprec" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-foreground/50 dark:text-gray-500 hover:text-[#1769FF] transition-all text-xs font-black uppercase tracking-[0.2em] group">
                   <div className="w-5 h-5 flex items-center justify-center">
                     <FaBehance size="100%" />
                   </div>
@@ -66,7 +66,7 @@ const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a href="https://wa.me/2348086215207" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-500 hover:text-[#25D366] transition-colors text-xs font-bold uppercase tracking-[0.2em] group">
+                <a href="https://wa.me/2348086215207" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-foreground/50 dark:text-gray-500 hover:text-[#25D366] transition-all text-xs font-black uppercase tracking-[0.2em] group">
                   <div className="w-5 h-5 flex items-center justify-center">
                     <FaWhatsapp size="100%" />
                   </div>
@@ -77,17 +77,17 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+        <div className="pt-12 border-t border-foreground/5 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex flex-col gap-2">
-            <p className="text-gray-600 text-[10px] tracking-[0.4em] uppercase font-black">
+            <p className="text-foreground/40 dark:text-gray-600 text-[10px] tracking-[0.4em] uppercase font-black">
               © 2026 Jesprec Studio Concepts. All Rights Reserved.
             </p>
-            <p className="text-gray-700 text-[9px] uppercase tracking-widest">Governed by the Laws of the Federal Republic of Nigeria.</p>
+            <p className="text-foreground/20 dark:text-gray-700 text-[9px] uppercase tracking-widest">Governed by the Laws of the Federal Republic of Nigeria.</p>
           </div>
           <div className="flex flex-wrap justify-center gap-10">
-            <button className="text-gray-600 text-[10px] uppercase tracking-[0.2em] font-black hover:text-white transition-colors">Privacy Policy</button>
-            <button className="text-gray-600 text-[10px] uppercase tracking-[0.2em] font-black hover:text-white transition-colors">Terms of Service</button>
-            <button className="text-gray-600 text-[10px] uppercase tracking-[0.2em] font-black hover:text-white transition-colors">Refund Policy</button>
+            <button className="text-foreground/30 dark:text-gray-600 text-[10px] uppercase tracking-[0.2em] font-black hover:text-brand-purple transition-all">Privacy Policy</button>
+            <button className="text-foreground/30 dark:text-gray-600 text-[10px] uppercase tracking-[0.2em] font-black hover:text-brand-purple transition-all">Terms of Service</button>
+            <button className="text-foreground/30 dark:text-gray-600 text-[10px] uppercase tracking-[0.2em] font-black hover:text-brand-purple transition-all">Refund Policy</button>
           </div>
         </div>
       </div>

@@ -87,7 +87,7 @@ const SmartQuote: React.FC = () => {
           <div className="animate-fadeIn">
             <span className="text-brand-cyan font-black tracking-[0.4em] text-[10px] uppercase mb-4 block">Consultation Gateway</span>
             <h2 className="text-4xl md:text-5xl font-black mb-4 tracking-tighter uppercase leading-none text-foreground">The Foundation.</h2>
-            <p className="text-gray-500 mb-12 font-light">What type of project are we bringing to life today?</p>
+            <p className="text-foreground/50 dark:text-gray-500 mb-12 font-light italic">What type of project are we bringing to life today?</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
                 { id: 'MEDIA', label: 'Media Production', icon: '🎥', desc: 'Photo, Video, Drone, Events' },
@@ -102,7 +102,7 @@ const SmartQuote: React.FC = () => {
                 >
                   <span className="text-4xl block mb-6 group-hover:scale-110 transition-transform origin-left">{opt.icon}</span>
                   <span className="font-black text-lg block uppercase mb-1 text-foreground group-hover:text-foreground transition-colors">{opt.label}</span>
-                  <span className="text-gray-600 text-xs font-light">{opt.desc}</span>
+                  <span className="text-foreground/40 dark:text-gray-600 text-[10px] font-bold uppercase tracking-widest">{opt.desc}</span>
                 </button>
               ))}
             </div>
@@ -111,7 +111,7 @@ const SmartQuote: React.FC = () => {
 
         {phase === 'DEEP_DIVE' && (
           <div className="animate-fadeIn">
-            <button onClick={() => setPhase('GATEWAY')} className="text-gray-600 text-[10px] font-black mb-8 flex items-center gap-2 hover:text-brand-purple uppercase tracking-widest transition-colors">← CHANGE CATEGORY</button>
+            <button onClick={() => setPhase('GATEWAY')} className="text-foreground/40 dark:text-gray-600 text-[10px] font-black mb-8 flex items-center gap-2 hover:text-brand-purple uppercase tracking-widest transition-colors">← CHANGE CATEGORY</button>
             <h2 className="text-4xl font-black mb-10 uppercase tracking-tighter text-foreground">Project Specs</h2>
 
             <div className="space-y-8">
@@ -119,8 +119,8 @@ const SmartQuote: React.FC = () => {
                 <>
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div className="col-span-2">
-                      <label className="block text-[10px] font-black text-gray-600 uppercase tracking-[0.2em] mb-4">Event Nature</label>
-                      <select className="w-full bg-primary border border-foreground/10 rounded-2xl px-6 py-5 focus:border-brand-purple outline-none text-foreground font-bold appearance-none" onChange={e => updateSpecifics('nature', e.target.value)}>
+                      <label className="block text-[10px] font-black text-foreground/40 dark:text-gray-600 uppercase tracking-[0.2em] mb-4">Event Nature</label>
+                      <select className="w-full bg-primary border-2 border-foreground/10 rounded-2xl px-6 py-5 focus:border-brand-purple outline-none text-foreground font-black appearance-none transition-all shadow-sm" onChange={e => updateSpecifics('nature', e.target.value)}>
                         <option>Select Project Nature</option>
                         <option>Wedding / Milestone Ceremony</option>
                         <option>Corporate Documentary / Promo</option>
@@ -129,12 +129,12 @@ const SmartQuote: React.FC = () => {
                       </select>
                     </div>
                     <div className="col-span-2 sm:col-span-1">
-                      <label className="block text-[10px] font-black text-gray-600 uppercase tracking-[0.2em] mb-4">City / State</label>
-                      <input className="w-full bg-primary border border-foreground/10 rounded-2xl px-6 py-5 focus:border-brand-purple outline-none text-foreground font-bold" placeholder="e.g. Lagos, Nigeria" onChange={e => updateSpecifics('location', e.target.value)} />
+                      <label className="block text-[10px] font-black text-foreground/40 dark:text-gray-600 uppercase tracking-[0.2em] mb-4">City / State</label>
+                      <input className="w-full bg-primary border-2 border-foreground/10 rounded-2xl px-6 py-5 focus:border-brand-purple outline-none text-foreground font-black transition-all shadow-sm" placeholder="e.g. Lagos, Nigeria" onChange={e => updateSpecifics('location', e.target.value)} />
                     </div>
                     <div className="col-span-2 sm:col-span-1">
-                      <label className="block text-[10px] font-black text-gray-600 uppercase tracking-[0.2em] mb-4">Guest Count (Est.)</label>
-                      <input className="w-full bg-primary border border-foreground/10 rounded-2xl px-6 py-5 focus:border-brand-purple outline-none text-foreground font-bold" placeholder="e.g. 200 - 500" onChange={e => updateSpecifics('guests', e.target.value)} />
+                      <label className="block text-[10px] font-black text-foreground/40 dark:text-gray-600 uppercase tracking-[0.2em] mb-4">Guest Count (Est.)</label>
+                      <input className="w-full bg-primary border-2 border-foreground/10 rounded-2xl px-6 py-5 focus:border-brand-purple outline-none text-foreground font-black transition-all shadow-sm" placeholder="e.g. 200 - 500" onChange={e => updateSpecifics('guests', e.target.value)} />
                     </div>
                   </div>
                 </>
@@ -177,8 +177,8 @@ const SmartQuote: React.FC = () => {
                     </div>
                   </div>
                   <div>
-                    <label className="block text-[10px] font-black text-gray-600 uppercase tracking-[0.2em] mb-4">Primary Goal</label>
-                    <select className="w-full bg-primary border border-foreground/10 rounded-2xl px-6 py-5 outline-none text-foreground font-bold" onChange={e => updateSpecifics('goal', e.target.value)}>
+                    <label className="block text-[10px] font-black text-foreground/40 dark:text-gray-600 uppercase tracking-[0.2em] mb-4">Primary Goal</label>
+                    <select className="w-full bg-primary border-2 border-foreground/10 rounded-2xl px-6 py-5 outline-none text-foreground font-black shadow-sm" onChange={e => updateSpecifics('goal', e.target.value)}>
                       <option>Brand Awareness</option>
                       <option>Lead Generation & Sales</option>
                       <option>Pure Content Creation</option>
@@ -188,15 +188,15 @@ const SmartQuote: React.FC = () => {
               )}
 
               {route === 'ART' && (
-                <div>
-                  <label className="block text-[10px] font-black text-gray-600 uppercase tracking-[0.2em] mb-4">Commission Details</label>
+                <>
+                  <label className="block text-[10px] font-black text-foreground/40 dark:text-gray-600 uppercase tracking-[0.2em] mb-4">Commission Details</label>
                   <textarea
                     rows={5}
-                    className="w-full bg-primary border border-foreground/10 rounded-2xl px-6 py-5 focus:border-brand-purple outline-none text-foreground font-bold resize-none"
+                    className="w-full bg-primary border-2 border-foreground/10 rounded-2xl px-6 py-5 focus:border-brand-purple outline-none text-foreground font-black resize-none shadow-sm"
                     placeholder="Size, Style, and Theme of your desired art piece..."
                     onChange={e => updateSpecifics('art_brief', e.target.value)}
                   ></textarea>
-                </div>
+                </>
               )}
 
               <button
@@ -211,12 +211,12 @@ const SmartQuote: React.FC = () => {
 
         {phase === 'INVESTMENT' && (
           <div className="animate-fadeIn">
-            <button onClick={() => setPhase('DEEP_DIVE')} className="text-gray-600 text-[10px] font-black mb-8 flex items-center gap-2 hover:text-brand-purple uppercase tracking-widest transition-colors">← BACK TO SPECS</button>
+            <button onClick={() => setPhase('DEEP_DIVE')} className="text-foreground/40 dark:text-gray-600 text-[10px] font-black mb-8 flex items-center gap-2 hover:text-brand-purple uppercase tracking-widest transition-colors">← BACK TO SPECS</button>
             <h2 className="text-4xl font-black mb-10 uppercase tracking-tighter text-foreground">Budget & Timeline</h2>
 
             <div className="space-y-10">
               <div>
-                <label className="block text-[10px] font-black text-gray-600 uppercase tracking-[0.2em] mb-6">Investment Range (NGN)</label>
+                <label className="block text-[10px] font-black text-foreground/40 dark:text-gray-600 uppercase tracking-[0.2em] mb-8">Estimated Budget (Naira)</label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {[
                     '₦200k – ₦500k',
@@ -234,9 +234,8 @@ const SmartQuote: React.FC = () => {
                   ))}
                 </div>
               </div>
-
-              <div>
-                <label className="block text-[10px] font-black text-gray-600 uppercase tracking-[0.2em] mb-6">Delivery Target</label>
+              <div className="pt-8">
+                <label className="block text-[10px] font-black text-foreground/40 dark:text-gray-600 uppercase tracking-[0.2em] mb-8">Project Timeline</label>
                 <div className="flex flex-wrap gap-3">
                   {['ASAP', 'Within 1 Month', '3+ Months'].map(time => (
                     <button
@@ -253,7 +252,7 @@ const SmartQuote: React.FC = () => {
               <button
                 disabled={!formData.budget || !formData.timeline}
                 onClick={() => setPhase('FINALIZE')}
-                className="w-full py-6 bg-brand-purple text-white font-black rounded-[1.5rem] hover:bg-brand-pink transition-all uppercase tracking-[0.3em] text-xs disabled:opacity-20"
+                className="w-full py-6 bg-brand-purple text-white font-black rounded-[1.5rem] hover:bg-brand-pink transition-all uppercase tracking-[0.3em] text-xs shadow-xl shadow-brand-purple/20"
               >
                 IDENTIFY YOURSELF
               </button>
@@ -263,13 +262,13 @@ const SmartQuote: React.FC = () => {
 
         {phase === 'FINALIZE' && (
           <div className="animate-fadeIn">
-            <button onClick={() => setPhase('INVESTMENT')} className="text-gray-600 text-[10px] font-black mb-8 flex items-center gap-2 hover:text-brand-purple uppercase tracking-widest transition-colors">← BACK</button>
+            <button onClick={() => setPhase('INVESTMENT')} className="text-foreground/40 dark:text-gray-600 text-[10px] font-black mb-8 flex items-center gap-2 hover:text-brand-purple uppercase tracking-widest transition-colors">← BACK</button>
             <h2 className="text-4xl font-black mb-6 uppercase tracking-tighter leading-none text-foreground">The Final Piece.</h2>
-            <p className="text-gray-500 mb-10 font-light">Direct communication ensures elite results. Provide your professional coordinates.</p>
+            <p className="text-foreground/50 dark:text-gray-500 mb-10 font-light italic">Direct communication ensures elite results. Provide your professional coordinates.</p>
 
             <div className="space-y-6">
-              <input className="w-full bg-primary border border-foreground/10 rounded-2xl px-6 py-6 focus:border-brand-purple outline-none text-foreground font-bold" placeholder="Your Full Name" onChange={e => setFormData(p => ({ ...p, name: e.target.value }))} />
-              <input className="w-full bg-primary border border-foreground/10 rounded-2xl px-6 py-6 focus:border-brand-purple outline-none text-foreground font-bold" placeholder="Professional Email" type="email" onChange={e => setFormData(p => ({ ...p, email: e.target.value }))} />
+              <input className="w-full bg-primary border-2 border-foreground/10 rounded-2xl px-6 py-6 focus:border-brand-purple outline-none text-foreground font-black shadow-sm" placeholder="Your Full Name" onChange={e => setFormData(p => ({ ...p, name: e.target.value }))} />
+              <input className="w-full bg-primary border-2 border-foreground/10 rounded-2xl px-6 py-6 focus:border-brand-purple outline-none text-foreground font-black shadow-sm" placeholder="Professional Email" type="email" onChange={e => setFormData(p => ({ ...p, email: e.target.value }))} />
 
               {error && <p className="text-red-500 text-xs font-bold">{error}</p>}
 
@@ -288,7 +287,7 @@ const SmartQuote: React.FC = () => {
           <div className="text-center py-12 animate-fadeIn">
             <div className="w-24 h-24 bg-brand-purple/10 text-brand-purple rounded-full flex items-center justify-center mx-auto mb-10 text-5xl">✓</div>
             <h2 className="text-4xl font-black mb-4 tracking-tighter uppercase text-foreground">STRATEGY QUEUED</h2>
-            <p className="text-gray-400 mb-12 max-w-sm mx-auto font-light">
+            <p className="text-foreground/60 dark:text-gray-400 mb-12 max-w-sm mx-auto font-light italic">
               Thank you, {formData.name.split(' ')[0]}. Our strategist will review your details and reach out within 24 hours.
             </p>
 
