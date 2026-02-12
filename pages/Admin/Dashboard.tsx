@@ -440,9 +440,9 @@ const AdminDashboard: React.FC = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                             {[
                                 { label: 'System Health', value: '100%', detail: 'All systems operational', bg: 'bg-emerald-600 shadow-emerald-500/20', icon: <FiShield /> },
-                                { label: 'Weekly Visits', value: '1,284', detail: '+12% from last week', bg: 'bg-brand-cyan shadow-brand-cyan/20', icon: <FiTrendingUp /> },
-                                { label: 'Impressions', value: '42.5K', detail: 'Across all platforms', bg: 'bg-brand-purple shadow-brand-purple/20', icon: <FiTarget /> },
-                                { label: 'Revenue (MTD)', value: '₦850K', detail: 'Art gallery & socials', bg: 'bg-brand-pink shadow-brand-pink/20', icon: <FiBarChart2 /> },
+                                { label: 'Weekly Visits', value: '0', detail: '0% from last week', bg: 'bg-brand-cyan shadow-brand-cyan/20', icon: <FiTrendingUp /> },
+                                { label: 'Impressions', value: '0', detail: 'Across all platforms', bg: 'bg-brand-purple shadow-brand-purple/20', icon: <FiTarget /> },
+                                { label: 'Revenue (MTD)', value: '₦0', detail: 'Art gallery & socials', bg: 'bg-brand-pink shadow-brand-pink/20', icon: <FiBarChart2 /> },
                             ].map((item, idx) => (
                                 <motion.div
                                     key={idx}
@@ -474,7 +474,7 @@ const AdminDashboard: React.FC = () => {
                                     </div>
                                 </div>
                                 <div className="h-48 flex items-end justify-between gap-1">
-                                    {[40, 70, 45, 90, 65, 80, 55, 100, 85, 95, 60, 75].map((h, i) => (
+                                    {[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0].map((h, i) => (
                                         <motion.div
                                             key={i}
                                             initial={{ height: 0 }}
@@ -506,14 +506,14 @@ const AdminDashboard: React.FC = () => {
                                         </linearGradient>
                                     </defs>
                                     <path
-                                        d="M0 120 Q 50 110, 100 80 T 200 60 T 300 90 T 400 30 V 150 H 0 Z"
+                                        d="M0 120 Q 50 120, 100 120 T 200 120 T 300 120 T 400 120 V 150 H 0 Z"
                                         fill="url(#lineGrad)"
                                     />
                                     <motion.path
                                         initial={{ pathLength: 0 }}
                                         animate={{ pathLength: 1 }}
                                         transition={{ duration: 2 }}
-                                        d="M0 120 Q 50 110, 100 80 T 200 60 T 300 90 T 400 30"
+                                        d="M0 120 Q 50 120, 100 120 T 200 120 T 300 120 T 400 120"
                                         fill="none"
                                         stroke="#ff1a7d"
                                         strokeWidth="4"
@@ -521,10 +521,10 @@ const AdminDashboard: React.FC = () => {
                                     />
                                     {/* Data Points */}
                                     {[
-                                        { cx: 100, cy: 80, label: '₦210K' },
-                                        { cx: 200, cy: 60, label: '₦450K' },
-                                        { cx: 300, cy: 90, label: '₦320K' },
-                                        { cx: 400, cy: 30, label: '₦850K' }
+                                        { cx: 100, cy: 120, label: '₦0' },
+                                        { cx: 200, cy: 120, label: '₦0' },
+                                        { cx: 300, cy: 120, label: '₦0' },
+                                        { cx: 400, cy: 120, label: '₦0' }
                                     ].map((pt, idx) => (
                                         <g key={idx}>
                                             <circle cx={pt.cx} cy={pt.cy} r="5" fill="#ff1a7d" className="group-hover:r-7 transition-all" />
