@@ -2,12 +2,12 @@ import * as Sentry from "@sentry/react";
 
 /**
  * Initializes Sentry for the frontend application.
- * Only runs in production mode to save quota and avoiding noise during development.
- * 
  * @param siteName - The name of the site (e.g., 'admin', 'main', 'shop', 'dev')
  */
 export const initSentry = (siteName: string) => {
-    if (import.meta.env.MODE !== 'production') {
+    const isDebug = import.meta.env.VITE_SENTRY_DEBUG === 'true';
+
+    if (import.meta.env.MODE !== 'production' && !isDebug) {
         return;
     }
 
@@ -18,6 +18,10 @@ export const initSentry = (siteName: string) => {
         return;
     }
 
+    if (isDebug) {
+        console.log(`[Sentry] Initializing Sentry for ${siteName} in DEBUG mode...`);
+    }
+
     Sentry.init({
         dsn,
         integrations: [
@@ -25,13 +29,14 @@ export const initSentry = (siteName: string) => {
             Sentry.replayIntegration(),
         ],
         // Performance Monitoring
-        tracesSampleRate: 0.1, // Adjusted for free tier (default 1.0 is too high for free tier)
+        tracesSampleRate: 0.1, // Adjusted for free tier
         // Session Replay
         replaysSessionSampleRate: 0.1,
         replaysOnErrorSampleRate: 1.0,
 
         // Environment and Tags
-        environment: "production",
+        environment: import.meta.env.MODE,
+        debug: isDebug,
         initialScope: {
             tags: { site: siteName },
         },
