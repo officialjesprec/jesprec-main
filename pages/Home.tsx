@@ -92,44 +92,57 @@ const Home: React.FC = () => {
 
       {/* The Jesprec Manifesto */}
       <section className="relative py-24 md:py-32 px-6 bg-muted/30 overflow-hidden">
-        <div className="container mx-auto max-w-4xl">
+        <div className="container mx-auto max-w-6xl">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="text-center mb-12 md:mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="text-center mb-16 md:mb-24"
           >
             <span className="text-[#FF4500] font-black tracking-[0.4em] uppercase text-[10px] md:text-xs">The CEO Manifesto</span>
-            <h2 className="text-2xl md:text-5xl font-black mt-4 mb-8 text-foreground uppercase tracking-tighter">Concepts to Reality.</h2>
+            <h2 className="text-3xl md:text-6xl font-black mt-4 text-foreground uppercase tracking-tighter">Concepts to Reality.</h2>
           </motion.div>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="space-y-6 md:space-y-8 text-left border-l-2 border-brand-purple/30 pl-6 md:pl-16"
-          >
-            <p className="text-foreground text-lg md:text-2xl font-light leading-relaxed">
-              At Jesprec Studio Concepts, we believe that both a lens and a line of code require a sharp eye for detail, a passion for storytelling, and a commitment to excellence.
-            </p>
-            <p className="text-gray-400 text-base md:text-lg leading-relaxed">
-              Founded in the heart of Nigeria, Jesprec is a multidisciplinary powerhouse designed for the modern era. We don’t just offer services; we build identities. Whether we are capturing the cinematic essence of your milestones or engineering the future of your business, our goal remains the same: <span className="text-foreground font-black">To turn your concepts into a living, breathing reality.</span>
-            </p>
-            <p className="text-gray-400 text-base md:text-lg leading-relaxed">
-              We bring a "Consultant-First" approach. We don’t just take your brief; we study your goals and deliver results that don’t just look good—they perform.
-            </p>
+
+          <div className="flex flex-col lg:flex-row items-center gap-12 md:gap-20">
+            {/* CEO Image */}
             <motion.div
-              initial={{ width: 0 }}
-              whileInView={{ width: "100%" }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 1.5, delay: 0.5 }}
-              className="pt-8 md:pt-12"
+              transition={{ duration: 1 }}
+              className="lg:w-2/5 relative group"
             >
-              <p className="text-foreground font-black text-2xl md:text-3xl tracking-tighter">— The CEO, Jesprec Studio Concepts</p>
-              <div className="w-24 md:w-32 h-1 bg-gradient-to-r from-brand-purple to-transparent mt-3"></div>
+              <div className="absolute -inset-4 bg-brand-purple/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="relative aspect-[3/4] rounded-[3rem] overflow-hidden border border-white/10">
+                <img
+                  src="/ceo.jpg"
+                  alt="CEO of Jesprec Studios"
+                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                />
+              </div>
             </motion.div>
-          </motion.div>
+
+            {/* Manifesto Text */}
+            <div className="lg:w-3/5 space-y-6 md:space-y-8 text-left">
+              <p className="text-foreground text-lg md:text-2xl font-light leading-relaxed">
+                At Jesprec Studio Concepts, we believe that both a lens and a line of code require a sharp eye for detail, a passion for storytelling, and a commitment to excellence.
+              </p>
+              <p className="text-gray-400 text-base md:text-lg leading-relaxed">
+                Founded in the heart of Nigeria, Jesprec is a multidisciplinary powerhouse designed for the modern era. We don’t just offer services; we build identities. Whether we are capturing the cinematic essence of your milestones or engineering the future of your business, our goal remains the same: <span className="text-foreground font-black">To turn your concepts into a living, breathing reality.</span>
+              </p>
+              <p className="text-gray-400 text-base md:text-lg leading-relaxed">
+                We bring a "Consultant-First" approach. We don’t just take your brief; we study your goals and deliver results that don’t just look good—they perform.
+              </p>
+
+              <div className="pt-8 md:pt-12">
+                <p className="text-foreground font-black text-2xl md:text-3xl tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white to-white/40 italic">
+                  - The CEO, Jesprec Studios
+                </p>
+                <div className="w-24 md:w-32 h-1 bg-gradient-to-r from-brand-purple to-transparent mt-4"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -160,29 +173,36 @@ const Home: React.FC = () => {
           whileInView="visible"
           viewport={{ once: true }}
           variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
         >
           {[
             {
-              title: 'The Visual Vault',
-              desc: 'Premium Photography, 4K Video, and Drone Coverage focused on cinematic storytelling.',
+              title: 'Visual Productions',
+              desc: 'High-octane Events, Cinema-grade Media & LiveStreaming.',
               icon: '🎥',
               color: '#BF00FF',
               link: '/portfolio'
             },
             {
-              title: 'The Digital Vault',
-              desc: 'Expert Web Development, UI/UX Design, and React Native apps engineered for performance.',
-              icon: '💻',
+              title: 'Branding Design',
+              desc: 'Premium Visual Identities and Strategic Brand Systems.',
+              icon: '🎨',
               color: '#00FFFF',
               link: '/portfolio'
             },
             {
-              title: 'The Art Vault',
-              desc: 'Boutique Artworks and Custom Frames curated for the sophisticated collector.',
-              icon: '🖼️',
-              color: '#FF007F',
-              link: '/gallery'
+              title: 'Motion & Social',
+              desc: 'Dynamic Motion Graphics and Viral Social Content.',
+              icon: '⚡',
+              color: '#FF00FF',
+              link: '/portfolio'
+            },
+            {
+              title: 'Prints & Merch',
+              desc: 'Official Merchandize and Global Print Campaigns.',
+              icon: '👕',
+              color: '#00FF88',
+              link: '/portfolio'
             }
           ].map((pillar, idx) => (
             <motion.div variants={itemVariants} key={idx}>
@@ -194,7 +214,7 @@ const Home: React.FC = () => {
                 <h3 className="text-xl md:text-2xl font-black mb-4 uppercase tracking-tighter" style={{ color: pillar.color }}>{pillar.title}</h3>
                 <p className="text-gray-500 text-sm md:text-base font-light leading-relaxed flex-grow">{pillar.desc}</p>
                 <div className="mt-8 md:mt-10 text-[10px] font-black tracking-[0.3em] uppercase text-white/20 group-hover:text-white flex items-center gap-3 transition-colors">
-                  Enter Vault <span>→</span>
+                  View Works <span>→</span>
                 </div>
               </Link>
             </motion.div>

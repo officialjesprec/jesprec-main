@@ -53,7 +53,7 @@ const Portfolio: React.FC = () => {
 
   return (
     <div className="pt-24 md:pt-40 pb-24 px-6 container mx-auto relative">
-      <DoodleBackground variant="digital" className="opacity-40" />
+      <DoodleBackground variant="design" className="opacity-40" />
 
       <motion.div
         initial={{ y: -20, opacity: 0 }}

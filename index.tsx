@@ -1,8 +1,12 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { initSentry } from './lib/sentry.config';
 import App from './App';
 import './index.css';
+
+// Initialize Sentry
+initSentry('main');
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {

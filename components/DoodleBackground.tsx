@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface DoodleBackgroundProps {
-    variant: 'visual' | 'digital' | 'art' | 'default';
+    variant: 'visual' | 'design' | 'art' | 'default';
     className?: string;
 }
 
@@ -16,7 +16,7 @@ const DoodleBackground: React.FC<DoodleBackgroundProps> = ({ variant, className 
                     "M250,50 L280,80 L250,110 Z",
                     "M400,100 A50,50 0 1,1 300,100"
                 ];
-            case 'digital':
+            case 'design':
                 return [
                     "M50,50 H150 V150 H50 Z",
                     "M200,50 L250,100 L200,150",

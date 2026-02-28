@@ -2,7 +2,7 @@
 export enum Vault {
   ALL = 'All Vaults',
   VISUAL = 'Visual Vault',
-  DIGITAL = 'Digital Vault'
+  DESIGN = 'Design Vault'
 }
 
 export type CaseStudyBlockType = 'text' | 'media';

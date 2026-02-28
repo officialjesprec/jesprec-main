@@ -75,8 +75,7 @@ const SmartQuote: React.FC = () => {
   const getDoodleVariant = () => {
     switch (route) {
       case 'MEDIA': return 'visual';
-      case 'DIGITAL': return 'digital';
-      case 'ART': return 'art';
+      case 'DESIGN': return 'design';
       default: return 'default';
     }
   };
@@ -112,10 +111,8 @@ const SmartQuote: React.FC = () => {
               <p className="text-gray-500 mb-12 font-light italic">What type of project are we bringing to life today?</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
-                  { id: 'MEDIA', label: 'Media Production', icon: '🎥', desc: 'Photo, Video, Drone, Events' },
-                  { id: 'DIGITAL', label: 'Digital Identity', icon: '💻', desc: 'Web, UI/UX, Mobile Apps' },
-                  { id: 'SOCIAL', label: 'Social & Growth', icon: '📈', desc: 'Ads, Management, Strategy' },
-                  { id: 'ART', label: 'Art & Framing', icon: '🖼️', desc: 'Custom Canvas, Gallery Pieces' },
+                  { id: 'MEDIA', label: 'Visual Productions', icon: '🎥', desc: 'Events, Streaming, Media' },
+                  { id: 'DESIGN', label: 'Design Strategy', icon: '🎨', desc: 'Branding, Motion, Social' },
                 ].map(opt => (
                   <button
                     key={opt.id}
@@ -165,12 +162,12 @@ const SmartQuote: React.FC = () => {
                   </div>
                 )}
 
-                {route === 'DIGITAL' && (
+                {route === 'DESIGN' && (
                   <>
                     <div>
                       <label className="block text-[10px] font-black text-gray-600 uppercase tracking-[0.2em] mb-4">Core Requirement</label>
                       <div className="grid grid-cols-2 gap-3">
-                        {['Branding Only', 'WordPress CMS', 'Custom React Web', 'React Native App'].map(opt => (
+                        {['Visual Branding', 'Motion Graphics', 'Social Media Kit', 'Print & Merch'].map(opt => (
                           <button
                             key={opt}
                             onClick={() => updateSpecifics('tech', opt)}
@@ -182,46 +179,13 @@ const SmartQuote: React.FC = () => {
                       </div>
                     </div>
                     <div>
-                      <label className="block text-[10px] font-black text-gray-600 uppercase tracking-[0.2em] mb-4">Domain & Hosting</label>
+                      <label className="block text-[10px] font-black text-gray-600 uppercase tracking-[0.2em] mb-4">Brand Status</label>
                       <div className="flex gap-4">
-                        <button onClick={() => updateSpecifics('hosting', 'Yes')} className={`flex-1 py-4 rounded-xl border text-[10px] font-black uppercase tracking-widest ${formData.specifics.hosting === 'Yes' ? 'bg-white text-black' : 'bg-primary border-white/5 text-gray-500'}`}>I Have It</button>
-                        <button onClick={() => updateSpecifics('hosting', 'No')} className={`flex-1 py-4 rounded-xl border text-[10px] font-black uppercase tracking-widest ${formData.specifics.hosting === 'No' ? 'bg-white text-black' : 'bg-primary border-white/5 text-gray-500'}`}>I Need It</button>
+                        <button onClick={() => updateSpecifics('status', 'Established')} className={`flex-1 py-4 rounded-xl border text-[10px] font-black uppercase tracking-widest ${formData.specifics.status === 'Established' ? 'bg-white text-black' : 'bg-primary border-white/5 text-gray-500'}`}>Established</button>
+                        <button onClick={() => updateSpecifics('status', 'New Startup')} className={`flex-1 py-4 rounded-xl border text-[10px] font-black uppercase tracking-widest ${formData.specifics.status === 'New Startup' ? 'bg-white text-black' : 'bg-primary border-white/5 text-gray-500'}`}>New Startup</button>
                       </div>
                     </div>
                   </>
-                )}
-
-                {route === 'SOCIAL' && (
-                  <>
-                    <div>
-                      <label className="block text-[10px] font-black text-gray-600 uppercase tracking-[0.2em] mb-4">Target Platforms</label>
-                      <div className="grid grid-cols-3 gap-3">
-                        {['Instagram', 'TikTok', 'LinkedIn'].map(p => (
-                          <button key={p} onClick={() => updateSpecifics('platform', p)} className={`p-4 rounded-xl border text-[10px] font-black uppercase tracking-widest ${formData.specifics.platform === p ? 'bg-brand-pink border-brand-pink text-white' : 'bg-primary border-white/5 text-gray-500'}`}>{p}</button>
-                        ))}
-                      </div>
-                    </div>
-                    <div>
-                      <label className="block text-[10px] font-black text-gray-600 uppercase tracking-[0.2em] mb-4">Primary Goal</label>
-                      <select className="w-full bg-primary border-2 border-white/5 rounded-2xl px-6 py-5 outline-none text-foreground font-black shadow-sm" onChange={e => updateSpecifics('goal', e.target.value)}>
-                        <option>Brand Awareness</option>
-                        <option>Lead Generation & Sales</option>
-                        <option>Pure Content Creation</option>
-                      </select>
-                    </div>
-                  </>
-                )}
-
-                {route === 'ART' && (
-                  <div>
-                    <label className="block text-[10px] font-black text-gray-600 uppercase tracking-[0.2em] mb-4">Commission Details</label>
-                    <textarea
-                      rows={5}
-                      className="w-full bg-primary border-2 border-white/5 rounded-2xl px-6 py-5 focus:border-brand-purple outline-none text-foreground font-black resize-none shadow-sm"
-                      placeholder="Size, Style, and Theme of your desired art piece..."
-                      onChange={e => updateSpecifics('art_brief', e.target.value)}
-                    ></textarea>
-                  </div>
                 )}
 
                 <button

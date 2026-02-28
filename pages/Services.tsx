@@ -2,11 +2,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CREATIVE_SERVICES, DIGITAL_SERVICES } from '../constants';
+import { CREATIVE_SERVICES, DIGITAL_SERVICES, ALL_SERVICES } from '../constants';
 import DoodleBackground from '../components/DoodleBackground';
 
 const Services: React.FC = () => {
-  const [doodleVariant, setDoodleVariant] = useState<'visual' | 'digital' | 'art' | 'default'>('default');
+  const [doodleVariant, setDoodleVariant] = useState<'visual' | 'design' | 'art' | 'default'>('default');
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -47,7 +47,7 @@ const Services: React.FC = () => {
               "A successful project begins with the right questions, not just the right tools."
             </p>
             <p className="text-gray-500 leading-relaxed mb-10 font-medium">
-              At Jesprec, we adopt a Consultant-First approach. We study your market, identify your specific pain points, and engineer solutions that solve real-world problems—whether it's a mobile app for vendors or a cinematic brand documentary.
+              At Jesprec, we adopt a Consultant-First approach. We study your market, identify your specific pain points, and engineer solutions that solve real-world problems—whether it's a cinematic brand documentary or a strategic visual identity.
             </p>
             <Link to="/quote" className="px-10 py-4 bg-brand-purple text-white font-black rounded-full text-xs tracking-widest uppercase hover:bg-brand-pink transition-all inline-block">
               Book a Strategy Call
@@ -64,7 +64,7 @@ const Services: React.FC = () => {
             <div className="space-y-6">
               {[
                 { title: 'Brand Kit', desc: 'Existing logos, colors, and font assets.', icon: '🎨' },
-                { title: 'Technical Access', desc: 'Domain, hosting, and repository credentials.', icon: '🔑' },
+                { title: 'Project Assets', desc: 'Existing media, motion clips, or brand documents.', icon: '📂' },
                 { title: 'Shot List / Brief', desc: 'A detailed timeline of event highlights or goals.', icon: '📋' },
                 { title: 'Target Market', desc: 'A clear definition of your ideal user or viewer.', icon: '🎯' }
               ].map((item, idx) => (
@@ -81,138 +81,60 @@ const Services: React.FC = () => {
         </div>
       </section>
 
-      {/* Creative Wing */}
+      {/* 6 Services Grid */}
       <section
-        className="container mx-auto px-6 mb-32 relative z-10"
-        onMouseEnter={() => setDoodleVariant('visual')}
-        onMouseLeave={() => setDoodleVariant('default')}
-      >
-        <div className="flex flex-col lg:flex-row items-center gap-16">
-          <div className="lg:w-1/2">
-            <motion.span
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              className="text-brand-pink font-black tracking-widest uppercase text-xs"
-            >
-              Innovation Wing A
-            </motion.span>
-            <motion.h2
-              initial={{ y: 20, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              className="text-4xl md:text-5xl font-black mt-4 mb-8 uppercase tracking-tighter text-foreground"
-            >
-              CREATIVE WING
-            </motion.h2>
-            <p className="text-gray-400 text-lg leading-relaxed mb-12 font-light">
-              Capturing cinematic moments with absolute precision. We don't just take photos; we manufacture timeless visual narratives for elite brands.
-            </p>
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={containerVariants}
-              className="grid sm:grid-cols-2 gap-8"
-            >
-              {CREATIVE_SERVICES.map((s, idx) => (
-                <motion.div
-                  key={s.id}
-                  variants={itemVariants}
-                  className="p-8 rounded-3xl bg-muted border-l-4 border-brand-purple hover:border-brand-pink transition-all group shadow-sm bg-muted/50 backdrop-blur-sm"
-                >
-                  <div className="text-4xl mb-6 group-hover:scale-110 transition-transform origin-left">{s.icon}</div>
-                  <h3 className="font-black text-xl mb-4 text-foreground uppercase tracking-tighter">{s.title}</h3>
-                  <ul className="space-y-3">
-                    {s.items.map(item => (
-                      <li key={item} className="text-gray-500 text-[10px] font-black uppercase tracking-widest flex items-center gap-3">
-                        <span className="w-1.5 h-1.5 bg-brand-purple rounded-full"></span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            className="lg:w-1/2 relative"
-          >
-            <div className="absolute -inset-4 bg-brand-purple/5 blur-3xl rounded-full"></div>
-            <img
-              src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80&w=800"
-              alt="Creative Wing"
-              className="relative rounded-[2rem] shadow-2xl border border-white/5 grayscale hover:grayscale-0 transition-all duration-700"
-            />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Digital Wing */}
-      <section
-        className="relative z-10 py-32 border-y border-white/5 bg-muted/10 backdrop-blur-sm"
-        onMouseEnter={() => setDoodleVariant('digital')}
+        className="relative z-10 py-32 border-t border-white/5 bg-muted/5"
+        onMouseEnter={() => setDoodleVariant('design')}
         onMouseLeave={() => setDoodleVariant('default')}
       >
         <div className="container mx-auto px-6">
-          <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
-            <div className="lg:w-1/2 text-right">
-              <motion.span
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                className="text-brand-cyan font-black tracking-widest uppercase text-xs"
-              >
-                Innovation Wing B
-              </motion.span>
-              <motion.h2
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                className="text-4xl md:text-5xl font-black mt-4 mb-8 uppercase tracking-tighter text-foreground"
-              >
-                DIGITAL WING
-              </motion.h2>
-              <p className="text-gray-400 text-lg leading-relaxed mb-12 font-light">
-                Engineering experiences that work. We combine user-centric design with robust development to build platforms that solve business problems and scale exponentially.
-              </p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-24"
+          >
+            <h2 className="text-5xl md:text-7xl font-black mb-8 tracking-tighter uppercase text-foreground leading-none">
+              THE ARSENAL.
+            </h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto font-light leading-relaxed italic">
+              Six specialized domains, one unified standard of excellence. We don't just provide services; we engineer brand dominance.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {ALL_SERVICES.map((service, idx) => (
               <motion.div
-                initial="hidden"
-                whileInView="visible"
+                key={service.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                variants={containerVariants}
-                className="grid sm:grid-cols-2 gap-8"
+                transition={{ delay: idx * 0.1 }}
+                onMouseEnter={() => setDoodleVariant(idx < 3 ? 'visual' : 'design')}
+                onMouseLeave={() => setDoodleVariant('default')}
+                className="group p-10 bg-muted/30 border border-white/5 rounded-[3rem] hover:border-brand-purple/50 transition-all duration-500 hover:bg-muted/50 flex flex-col items-start min-h-[400px]"
               >
-                {DIGITAL_SERVICES.map((s, idx) => (
-                  <motion.div
-                    key={s.id}
-                    variants={itemVariants}
-                    className="p-8 rounded-3xl bg-primary border-r-4 border-brand-cyan hover:border-brand-purple transition-all group shadow-sm"
+                <div className="text-5xl mb-8 group-hover:scale-110 transition-transform duration-500 transform-gpu">{service.icon}</div>
+                <h3 className="text-2xl font-black mb-6 tracking-tight uppercase text-foreground">{service.title}</h3>
+                <ul className="space-y-4 mb-10 flex-grow">
+                  {service.items.map((item, i) => (
+                    <li key={i} className="text-gray-500 text-[10px] font-black uppercase tracking-widest flex items-center gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-brand-purple/30 group-hover:bg-brand-purple transition-all" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="w-full">
+                  <Link
+                    to="/quote"
+                    className="w-full py-5 bg-primary/50 border border-white/5 rounded-2xl flex items-center justify-center text-[10px] font-black uppercase tracking-[0.3em] hover:bg-brand-purple hover:border-brand-purple text-gray-500 hover:text-white transition-all duration-300"
                   >
-                    <div className="text-4xl mb-6 group-hover:scale-110 transition-transform origin-right">{s.icon}</div>
-                    <h3 className="font-black text-xl mb-4 text-foreground uppercase tracking-tighter">{s.title}</h3>
-                    <ul className="space-y-3">
-                      {s.items.map(item => (
-                        <li key={item} className="text-gray-500 text-[10px] font-black uppercase tracking-widest flex flex-row-reverse items-center gap-3">
-                          <span className="w-1.5 h-1.5 bg-brand-cyan rounded-full"></span>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </motion.div>
-                ))}
+                    Start Project <span>→</span>
+                  </Link>
+                </div>
               </motion.div>
-            </div>
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              className="lg:w-1/2 relative"
-            >
-              <div className="absolute -inset-4 bg-brand-cyan/5 blur-3xl rounded-full"></div>
-              <img
-                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800"
-                alt="Digital Wing"
-                className="relative rounded-[2rem] shadow-2xl border border-white/5 grayscale hover:grayscale-0 transition-all duration-700"
-              />
-            </motion.div>
+            ))}
           </div>
         </div>
       </section>

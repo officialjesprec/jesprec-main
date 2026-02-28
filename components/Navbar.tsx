@@ -20,8 +20,6 @@ const Navbar: React.FC = () => {
     { name: 'Home', path: '/' },
     { name: 'Portfolio', path: '/portfolio' },
     { name: 'Services', path: '/services' },
-    { name: 'Socials', path: '/social-media' },
-    { name: 'Gallery', path: '/gallery' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -32,7 +30,7 @@ const Navbar: React.FC = () => {
         {/* Logo Section - Flex-1 and left aligned for centering links */}
         <div className="lg:flex-1 flex justify-start items-center">
           <Link to="/" onClick={() => setIsMenuOpen(false)} className="flex items-center shrink-0">
-            <Logo className="h-14 md:h-20" />
+            <Logo className="h-12 md:h-18" />
           </Link>
         </div>
 
