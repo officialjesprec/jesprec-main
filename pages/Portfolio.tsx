@@ -14,14 +14,31 @@ const Portfolio: React.FC = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       const { data, error } = await supabase
-        .from('projects')
+        .from('case_studies')
         .select('*')
+        .eq('status', 'published')
         .order('created_at', { ascending: false });
 
       if (!error && data) {
-        setProjects(data as Project[]);
+        // Map the backend CaseStudy schema onto the frontend Project schema
+        const mappedProjects: Project[] = data.map((item: any) => ({
+          id: item.id,
+          title: item.title,
+          vault: item.category.toLowerCase().includes('branding') || item.category.toLowerCase().includes('design')
+            ? Vault.DESIGN : Vault.VISUAL,
+          image_url: item.cover_url || '',
+          description: item.description || '',
+          tags: item.services || [],
+          case_study: {
+            challenge: "Project Overview",
+            strategy: item.description,
+            result: "Delivered to client standards",
+            blocks: []
+          }
+        }));
+        setProjects(mappedProjects);
       } else {
-        console.error('Error fetching projects:', error);
+        console.error('Error fetching case studies:', error);
       }
       setLoading(false);
     };
